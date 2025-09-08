@@ -29,18 +29,15 @@ Node* buildTree(vector<int> preorder){ // pass by reference & TC: O(N)
     return root;
 }
 
-// Node* buildTree(vector<int> &preorder, int &index){
-//     if(index >= preorder.size() || preorder[index] == -1){
-//         index++;
-//         return NULL;
-//     }
-
-//     Node* root = new Node(preorder[index++]);
-//     root->left = buildTree(preorder, index);
-//     root->right = buildTree(preorder, index);
-
-//     return root;
-// }
+void preOrder(Node* root){
+    if(root == NULL){
+        cout<<-1<<" ";
+        return;
+    }
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
 
 int main(){
     vector<int> preorder = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
@@ -50,5 +47,8 @@ int main(){
     cout<<root->right->data<<endl; // 3
     cout<<root->right->left->data<<endl; // 4
     cout<<root->right->right->data<<endl; // 5
+
+    preOrder(root); // 1 2 -1 -1 3 4 -1 -1 5 -1 -1
+    cout<<endl;
     return 0;
 }
