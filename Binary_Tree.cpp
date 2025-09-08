@@ -31,12 +31,30 @@ Node* buildTree(vector<int> preorder){ // pass by reference & TC: O(N)
 
 void preOrder(Node* root){
     if(root == NULL){
-        cout<<-1<<" ";
+        cout<<-1<<" ";  //If we only want to print the values of nodes then we can skip this line
         return;
     }
     cout<<root->data<<" ";
     preOrder(root->left);
     preOrder(root->right);
+}
+
+void inOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    inOrder(root->left);
+    cout<<root->data<<" ";
+    inOrder(root->right);
+}
+
+void postOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->data<<" ";
 }
 
 int main(){
@@ -50,5 +68,12 @@ int main(){
 
     preOrder(root); // 1 2 -1 -1 3 4 -1 -1 5 -1 -1
     cout<<endl;
+    
+    inOrder(root); // 2 1 4 3 5
+    cout<<endl;
+
+    postOrder(root); // 2 4 5 3 1
+    cout<<endl;
+
     return 0;
 }
