@@ -64,6 +64,7 @@ void levelOrder(Node* root){
     }
     queue<Node*> q;
     q.push(root);
+    q.push(NULL); //separator for levels // not necessary for this implementation
 
 
     while(q.size() > 0){
