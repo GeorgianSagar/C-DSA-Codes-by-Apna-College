@@ -72,13 +72,20 @@ void levelOrder(Node* root){
         q.pop();
 
         cout<<curr->data<<" ";
-
-        if(curr->left != NULL){
-            q.push(curr->left);
+        if(curr == NULL){
+            // cout<<endl; // for level separation
+            if(!q.empty() > 0){
+                q.push(NULL);
+            }
+            continue;
         }
-        if(curr->right != NULL){
-            q.push(curr->right);
-        }
+        // Push children of current node
+        // if(curr->left != NULL){
+        //     q.push(curr->left);
+        // }
+        // if(curr->right != NULL){
+        //     q.push(curr->right);
+        // }
     }
     cout<<endl;
 }
